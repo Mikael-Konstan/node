@@ -1,6 +1,7 @@
 const Koa = require('koa');
 const router = require('koa-router')();
 const Fs = require('fs')
+const config = require('./node.config')
 
 const app = new Koa({ proxy: true });
 
@@ -23,7 +24,6 @@ function readEtc(){
 function writeEtc(){
 
 }
-const port = 3000
-app.listen(port, () => {
-  console.log(`app start listening on port ${port}`)
+app.listen(config.serverPort, () => {
+  console.log(`app start listening on port ${config.serverPort}`)
 });
